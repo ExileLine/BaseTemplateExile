@@ -1,4 +1,5 @@
 // 校验必填项
+// trigger-blur/change
 export const validateRequired = (message, trigger = 'blur', type = 'error') => ({
   required: true,
   message,

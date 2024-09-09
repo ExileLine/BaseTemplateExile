@@ -1,6 +1,6 @@
 import { defineComponent, computed, h } from 'vue'
+import { useRoute } from 'vue-router'
 import { prefix } from '@/config/global'
-import { getActive } from '@/router'
 
 const getMenuList = (list, basePath) => {
   if (!list) {
@@ -35,10 +35,11 @@ const renderIcon = item => {
 }
 
 const getPath = (active, item) => {
-  if (active.startsWith(item.path)) {
-    return active
-  }
-  return item.meta?.single ? item.redirect : item.path
+  return item.path
+  // if (active.startsWith(item.path)) {
+  //   return active
+  // }
+  // return item.meta?.single ? item.redirect : item.path
 }
 
 const useRenderNav = (active, list) => {
@@ -84,7 +85,8 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const active = computed(() => getActive())
+    const route = useRoute()
+    const active = computed(() => route.path)
     const list = computed(() => {
       const { navData } = props
       return getMenuList(navData)

@@ -33,18 +33,23 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  params: {
+    type: Object,
+    default: () => ({}),
+  },
 })
 
 const options = ref([])
 
 async function getList(value = '') {
-  const { url, labelKey, valueKey, dataKey } = props
+  const { url, labelKey, valueKey, dataKey, params } = props
   if (!url) return
   const { records } = await post(url, {
     page: 1,
     size: 100,
     project_id: store.getters.project_id,
     [dataKey || labelKey]: typeof value === 'string' ? value : '',
+    ...params,
   })
   options.value = map(records, item => ({
     ...item,

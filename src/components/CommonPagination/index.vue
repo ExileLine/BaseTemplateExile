@@ -4,12 +4,17 @@
     class="flex-between flex-wrap"
     style="display: flex; justify-content: center; margin-top: 20px"
   >
-    <t-pagination-mini v-if="isMobile" showCurrent :disabled="jumperDisabled" @change="handleJumperChange" />
+    <t-pagination-mini
+      v-if="isMobile"
+      showCurrent
+      :disabled="jumperDisabled"
+      @change="handleJumperChange"
+    />
     <t-pagination
       v-else
       v-bind="{
         layout: 'total, sizes, prev, pager, next, jumper',
-        'page-size-options': [1, 5, 10, 20, 30, 50, 100],
+        'page-size-options': [10, 20, 30, 50, 100], //[1, 5, 10, 20, 30, 50, 100]
         ...otherProps,
       }"
       show-jumper

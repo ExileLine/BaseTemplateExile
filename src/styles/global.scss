@@ -166,3 +166,8 @@ input:-internal-autofill-selected {
   max-height: 80vh;
   overflow-y: auto;
 }
+
+.word-pre {
+  word-break: break-all;
+  white-space: pre-wrap;
+}

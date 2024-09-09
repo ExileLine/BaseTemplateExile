@@ -1,6 +1,6 @@
 <template>
   <div id="base-table" class="hp-100">
-    <div class="justify-between flex-wrap">
+    <div v-if="fieldList && fieldList.length" class="justify-between flex-wrap">
       <common-form
         layout="inline"
         :data="formModel"

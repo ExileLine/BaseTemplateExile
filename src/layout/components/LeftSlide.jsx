@@ -1,15 +1,13 @@
 import { defineComponent, computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { prefix } from '@/config/global'
 import pgk from '../../../package.json'
 import MenuContent from './MenuContent'
-import { getActive, pageRoutes } from '@/router'
+import { pageRoutes } from '@/router'
 import { MIN_POINT } from '@/config/global'
 
 const useComputed = props => {
-  const active = computed(() => getActive())
-
   const sideNavCls = computed(() => {
     const { isCompact } = props
     return [
@@ -38,7 +36,6 @@ const useComputed = props => {
   })
 
   return {
-    active,
     sideNavCls,
     menuCls,
     layoutCls,
@@ -78,7 +75,9 @@ export default defineComponent({
     },
   },
   setup(props, { emit }) {
+    const route = useRoute()
     const router = useRouter()
+    const active = computed(() => route.path)
     const changeCollapsed = () => {
       emit('update:collapsed', props.collapse)
     }
@@ -106,6 +105,7 @@ export default defineComponent({
     return {
       prefix,
       theme,
+      active,
       ...useComputed(props),
       autoCollapsed,
       changeCollapsed,

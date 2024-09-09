@@ -197,10 +197,10 @@ async function resetPwd() {
 }
 
 const gotoProject = () => {
-  store.commit('app/clearTag')
-  router.push({
-    path: '/project',
-  })
+  // store.commit('app/clearTag')
+  // router.push({
+  //   path: '/project',
+  // })
 }
 
 const logout = () => {

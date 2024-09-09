@@ -43,8 +43,12 @@ const service = axios.create({
 const errorHandler = error => {
   deleteLoading()
   const status = error?.response?.status + ''
-
   error.message = errorStatus[status] || '未知错误'
+  if (status == 401) {
+    removeToken()
+    router.replace('/login')
+    MessagePlugin.closeAll()
+  }
   if (!window.navigator.onLine) {
     error.message = '网络异常，请检查'
   }
