@@ -1,4 +1,4 @@
-import { find, map, has } from 'lodash'
+import { find, map, has } from 'lodash-es'
 import { DialogPlugin } from 'tdesign-vue-next'
 export function toSelectList(list, key) {
   return map(list, item => ({

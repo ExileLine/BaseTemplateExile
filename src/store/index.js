@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { keys } from 'lodash'
+import { keys } from 'lodash-es'
 import getters from './getters'
 
 const modulesFiles = import.meta.globEager('./modules/*.js')

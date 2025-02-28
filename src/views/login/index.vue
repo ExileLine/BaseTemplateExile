@@ -18,7 +18,7 @@
         label-align="top"
         :field-list="fieldList"
         confirm-text="登录"
-        id="login-form"
+        class="login-form"
         @confirm="login"
       />
       <div class="tourist-account" @click="getTouristAccount">获取游客账号</div>
@@ -126,7 +126,7 @@ const login = async () => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    #login-form {
+    .login-form {
       width: 545px;
       ::v-deep(.t-form__item) {
         .t-form__label {

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { assign } from 'lodash'
+import { assign } from 'lodash-es'
 import store from '@/store'
 import router from '@/router'
 import { LoadingPlugin, MessagePlugin } from 'tdesign-vue-next'

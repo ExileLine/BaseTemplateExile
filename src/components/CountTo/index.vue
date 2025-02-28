@@ -4,7 +4,7 @@
 <script setup>
 import { ref, computed, onMounted, watch, watchEffect } from 'vue'
 import { useTransition, TransitionPresets } from '@vueuse/core'
-import { isNumber } from 'lodash'
+import { isNumber } from 'lodash-es'
 
 const props = defineProps({
   /** 初始值 */

@@ -1,5 +1,5 @@
 import { nextTick } from 'vue'
-import { isFunction, throttle } from 'lodash'
+import { isFunction, throttle } from 'lodash-es'
 import { getOffsetTopDistance, getScrollContainer } from '@util/index'
 
 export const SCOPE = 'InfiniteScroll'

@@ -113,7 +113,6 @@
         @cancel="projectDialogVisible = false"
       />
     </t-dialog>
-
   </div>
 </template>
 
@@ -121,7 +120,7 @@
 import { nextTick, ref, inject, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 
 // search、add图标
 import { SearchIcon, AddIcon } from 'tdesign-icons-vue-next'

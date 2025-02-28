@@ -31,7 +31,7 @@
 <script setup lang="jsx">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useStore } from 'vuex'
-import { throttle, map, concat, filter } from 'lodash'
+import { throttle, map, concat, filter } from 'lodash-es'
 import { renderAction } from '@/composables/renderTableAction'
 
 const props = defineProps({

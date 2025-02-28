@@ -1,4 +1,4 @@
-import { filter } from 'lodash'
+import { filter } from 'lodash-es'
 import router from '@/router'
 import { setStorage, getStorage } from '@/utils/store'
 

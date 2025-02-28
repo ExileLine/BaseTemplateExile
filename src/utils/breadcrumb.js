@@ -1,4 +1,4 @@
-import { concat } from 'lodash'
+import { concat } from 'lodash-es'
 import { pageRoutes } from '@/router'
 
 let routeTitle = {}

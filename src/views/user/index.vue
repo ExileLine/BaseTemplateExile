@@ -24,7 +24,7 @@
 
 <script setup lang="jsx">
 import { ref, computed, inject } from 'vue'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import UserDialog from './components/UserDialog.vue'
 import { fetchDeleteUser } from '@/api/user'
 import { confirmDialog } from '@/utils/business'

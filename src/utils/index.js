@@ -1,4 +1,4 @@
-import { camelCase, forEach, isArray } from 'lodash'
+import { camelCase, forEach, isArray } from 'lodash-es'
 export const getScrollContainer = (el, isVertical) => {
   let parent = el
   while (parent) {

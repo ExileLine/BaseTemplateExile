@@ -20,7 +20,7 @@
 <script setup>
 import { ref, inject, computed } from 'vue'
 import { useStore } from 'vuex'
-import { clone } from 'lodash'
+import { clone } from 'lodash-es'
 import { validateRequired } from '@/components/validate'
 import { fetchAddUser, fetchUpdateUser } from '@/api/user'
 

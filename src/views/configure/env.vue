@@ -31,7 +31,7 @@
 
 <script setup lang="jsx">
 import { ref, computed, inject } from 'vue'
-import { cloneDeep } from 'lodash'
+import { cloneDeep } from 'lodash-es'
 import { fetchAddEnv, fetchUpdateEnv, fetchDeleteEnv } from '@/api/env'
 import { validateRequired } from '@/components/validate'
 import { confirmDialog } from '@/utils/business'

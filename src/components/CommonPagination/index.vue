@@ -29,7 +29,7 @@
 <script setup>
 import { ref, onMounted, watch, computed, onActivated } from 'vue'
 import { useStore } from 'vuex'
-import { debounce } from 'lodash'
+import { debounce } from 'lodash-es'
 import request from '@/utils/request'
 const props = defineProps({
   url: String,

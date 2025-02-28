@@ -1,7 +1,6 @@
 <template>
   <t-form
     v-bind="$attrs"
-    id="business-common-form"
     ref="formRef"
     :data="data"
     :rules="rules"
@@ -176,12 +175,7 @@ defineExpose({
 </script>
 
 <style lang="scss">
-#business-common-form {
-  .input-text-left input {
-    text-align: left;
-  }
-}
-.form-action {
+x .form-action {
   .el-button {
     margin: 0 5px;
   }

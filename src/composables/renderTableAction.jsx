@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import { map } from 'lodash'
+import { map } from 'lodash-es'
 
 export const renderAction = (actionOptionList, row) => {
   const store = useStore()

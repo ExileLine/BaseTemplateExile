@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, useRoute } from 'vue-router'
-import { flatten, keys } from 'lodash'
+import { flatten, keys } from 'lodash-es'
 import Layout from '@/layout/index.vue'
 import { getBreadcrumbByRouteKey } from '@/utils/breadcrumb'
 

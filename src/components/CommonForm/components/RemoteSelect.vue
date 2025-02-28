@@ -12,7 +12,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
-import { map, isFunction } from 'lodash'
+import { map, isFunction } from 'lodash-es'
 import { post } from '@/utils/request'
 import { onMounted } from 'vue'
 
