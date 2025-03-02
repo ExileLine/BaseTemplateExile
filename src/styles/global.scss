@@ -165,6 +165,7 @@ input:-internal-autofill-selected {
 .t-dialog__body {
   max-height: 80vh;
   overflow-y: auto;
+  white-space: pre-wrap;
 }
 
 .word-pre {

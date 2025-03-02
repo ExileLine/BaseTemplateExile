@@ -9,25 +9,25 @@ const router = [
       title: '用户管理',
     },
     component: () => import('@/layout/BlankLayout.vue'),
-    children: [
-      {
-        name: 'userList',
-        path: 'index',
-        meta: {
-          title: '用户列表',
-        },
-        component: () => import('@view/user/index.vue'),
-      },
-      {
-        name: 'userInfo',
-        path: 'info',
-        meta: {
-          title: '个人信息',
-          hidden: true,
-        },
-        component: () => import('@view/user/info.vue'),
-      },
-    ],
+    // children: [
+    //   {
+    //     name: 'userList',
+    //     path: 'index',
+    //     meta: {
+    //       title: '用户列表',
+    //     },
+    //     component: () => import('@view/user/index.vue'),
+    //   },
+    //   {
+    //     name: 'userInfo',
+    //     path: 'info',
+    //     meta: {
+    //       title: '个人信息',
+    //       hidden: true,
+    //     },
+    //     component: () => import('@view/user/info.vue'),
+    //   },
+    // ],
   },
 ]
 
