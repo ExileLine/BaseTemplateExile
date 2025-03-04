@@ -6,7 +6,7 @@
       :field-list="fieldList"
       :columns="columns"
       :action-option-list="actionOptionList"
-      url="/api/score/upload_history_page"
+      url="/api/score/exam_qa_page"
     >
       <template #formActions>
         <!-- <t-button theme="success">导出</t-button> -->
@@ -57,6 +57,10 @@ const procesStatusList = [
   },
 ]
 const fieldList = [
+  {
+    value: 'uuid',
+    label: '批次',
+  },
   {
     value: 'process_status',
     label: '状态',

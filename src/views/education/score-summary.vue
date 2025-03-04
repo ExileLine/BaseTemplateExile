@@ -43,7 +43,7 @@ const procesStatusList = [
   },
   {
     value: 'PROCESSING',
-    label: '处理中',
+    label: '分析中',
     theme: 'primary',
   },
   {
@@ -58,6 +58,10 @@ const procesStatusList = [
   },
 ]
 const fieldList = [
+  {
+    value: 'uuid',
+    label: '批次',
+  },
   {
     value: 'process_status',
     label: '状态',
