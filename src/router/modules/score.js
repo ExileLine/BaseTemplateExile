@@ -26,6 +26,14 @@ const router = [
         },
         component: () => import('@view/education/score-summary.vue'),
       },
+      {
+        name: 'gen-exam',
+        path: 'gen-exam',
+        meta: {
+          title: '生题管理',
+        },
+        component: () => import('@view/education/gen-exam.vue'),
+      },
     ],
   },
 ]

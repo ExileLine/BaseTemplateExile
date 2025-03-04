@@ -22,10 +22,9 @@ import { inject, ref } from 'vue'
 import { find, get } from 'lodash-es'
 import { DialogPlugin, Message } from 'tdesign-vue-next'
 import useClipboard from 'vue-clipboard3'
+import MarkdownRenderer from '@/components/MarkdownRenderer.vue'
 import { downloadSourceZip } from '@/api/education'
 import { downloadFile } from '@/utils/download'
-import MarkdownRenderer from '@/components/MarkdownRenderer.vue'
-
 const { toClipboard } = useClipboard()
 
 const message = inject('message')
@@ -106,7 +105,7 @@ const columns = [
   },
   {
     colKey: 'analyze_result_content',
-    title: '分析结果内容',
+    title: '题目明细',
     minWidth: 160,
     render(h, { type, row }) {
       if (type === 'title') return

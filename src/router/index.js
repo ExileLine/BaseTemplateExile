@@ -25,9 +25,8 @@ const routes = [
     redirect: '/dashboard',
   },
 ]
-
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.VITE_URL),
   routes,
 })
 

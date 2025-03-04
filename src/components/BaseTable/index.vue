@@ -60,6 +60,7 @@ const props = defineProps({
   actionOptionList: {
     type: Array,
   },
+  tableHeight: Number,
 })
 
 const store = useStore()
@@ -92,6 +93,10 @@ const tableRef = ref()
 const paginationRef = ref()
 
 const setTableHeight = () => {
+  if (props.tableHeight) {
+    height.value = props.tableHeight
+    return
+  }
   const { height: bodyHeight } = document.body.getBoundingClientRect()
   const { top } = tableRef.value.getBoundingClientRect()
   const { height: paginationHeight } = paginationRef.value.getBoundingClientRect()

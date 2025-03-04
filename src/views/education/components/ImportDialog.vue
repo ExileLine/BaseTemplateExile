@@ -14,7 +14,7 @@
     />
     <t-upload
       v-model="files"
-      action="http://0.0.0.0:7766/api/score/upload"
+      action="/api/score/upload"
       placeholder="支持批量上传文件，文件格式(如：成绩明细.xlsx，试卷.pdf)，最多只能上传 2 份文件"
       theme="file-flow"
       multiple

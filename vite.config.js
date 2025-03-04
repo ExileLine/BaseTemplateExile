@@ -10,8 +10,8 @@ export default defineConfig(configEnv => {
   const viteEnv = loadEnv(configEnv.mode, process.cwd())
   const rootPath = getRootPath()
   const srcPath = getSrcPath()
-
   return {
+    base: viteEnv.VITE_URL,
     resolve: {
       alias: {
         '~': rootPath,

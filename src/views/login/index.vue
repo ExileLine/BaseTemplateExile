@@ -3,7 +3,8 @@
     <div id="logo-container">
       <div class="flag-text">开源企业级</div>
       <div class="slogan-text">
-        持续测试平台, 涵盖测试跟踪、接口测试、UI测试、 团队协作等功能有效助力开发和测试团队
+        <!-- 持续测试平台, 涵盖测试跟踪、接口测试、UI测试、 团队协作等功能有效助力开发和测试团队 -->
+        聚合平台
       </div>
       <img src="@/assets/logo-icon.png" alt="" />
     </div>
@@ -78,7 +79,8 @@ const getTouristAccount = async () => {
 const login = async () => {
   await store.dispatch('user/login', loginData)
   router.push({
-    path: '/project',
+    // path: '/project',
+    path: '/education/score',
   })
 }
 </script>
