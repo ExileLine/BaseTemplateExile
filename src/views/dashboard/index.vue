@@ -12,9 +12,9 @@ import DataCard from './components/DataCard.vue'
 import { fetchGetDashboard } from '@/api/dashboard'
 
 const dataCard = ref()
-onMounted(async () => {
-  dataCard.value = await fetchGetDashboard()
-})
+// onMounted(async () => {
+//   dataCard.value = await fetchGetDashboard()
+// })
 </script>
 
 <style lang="scss" scoped></style>

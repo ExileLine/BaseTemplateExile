@@ -21,6 +21,7 @@
 </template>
 
 <script setup lang="jsx">
+import { examTypeList } from '@/variables'
 import { nextTick, ref } from 'vue'
 
 const props = defineProps({
@@ -49,10 +50,7 @@ const fieldList = [
     value: 'exam_type',
     label: '考试类型',
     component: 't-select',
-    list: [
-      { value: 'midterm', label: '期中考' },
-      { value: 'final', label: '期末考' },
-    ],
+    list: examTypeList,
     on: {
       change() {
         tableRef.value.getData = true

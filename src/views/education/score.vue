@@ -23,10 +23,13 @@
   />
 </template>
 
-<script setup>
+<script setup lang="jsx">
 import { ref } from 'vue'
 import ImportDialog from './components/ImportDialog.vue'
 import StudentScoreDialog from './components/StudentScoreDialog.vue'
+import { examTypeList, subjectList } from '@/variables'
+import { confirmDialog } from '@/utils/business'
+import { fetchScoreDelete, fetchScoreGenQa } from '@/api/education'
 
 const tableRef = ref()
 const formModel = ref({})
@@ -65,13 +68,21 @@ const fieldList = [
     label: '批次',
   },
   {
+    value: 'subject',
+    label: '科目',
+    component: 't-select',
+    list: subjectList,
+    on: {
+      change() {
+        tableRef.value.getData = true
+      },
+    },
+  },
+  {
     value: 'exam_type',
     label: '考试类型',
     component: 't-select',
-    list: [
-      { value: 'midterm', label: '期中考' },
-      { value: 'final', label: '期末考' },
-    ],
+    list: examTypeList,
     on: {
       change() {
         tableRef.value.getData = true
@@ -99,10 +110,18 @@ const columns = [
     colKey: 'exam_file_name',
     title: '试卷文件名称',
   },
-
+  {
+    colKey: 'subject',
+    title: '科目',
+  },
   {
     colKey: 'exam_type',
     title: '考试类型',
+  },
+  {
+    colKey: 'creator',
+    title: '创建者',
+    minWidth: 100,
   },
   {
     colKey: 'create_time',
@@ -119,6 +138,40 @@ const actionOptionList = [
     onClick({ row }) {
       params.value.batch = row.batch
       scoreDialogVisible.value = true
+    },
+  },
+  {
+    content: '生题',
+    value: 'mode-light',
+    theme: 'warning',
+    async onClick({ row }) {
+      const dialog = await confirmDialog(
+        <div>
+          是否生成试卷：
+          <span class="text-warning-6">{row.exam_file_name} </span>
+          题目，减少一次生题次数。
+        </div>
+      )
+      await fetchScoreGenQa(row)
+      dialog.hide()
+      message.success('操作成功')
+    },
+  },
+  {
+    content: '删除',
+    value: 'delete',
+    theme: 'danger',
+    async onClick({ row }) {
+      const dialog = await confirmDialog(
+        <div>
+          是否删除成绩：
+          <span class="text-warning-6">{row.score_file_name} </span>
+        </div>
+      )
+      await fetchScoreDelete(row)
+      dialog.hide()
+      tableRef.value.getData = true
+      message.success('操作成功')
     },
   },
 ]

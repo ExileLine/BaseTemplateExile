@@ -1,0 +1,33 @@
+export const examTypeList = [
+  { value: '期中考试', label: '期中考试' },
+  { value: '期末考试', label: '期末考试' },
+  { value: '月考', label: '月考' },
+  { value: '模拟考试', label: '模拟考试' },
+  // { value: '中考', label: '中考' },
+  // { value: '学业水平考试（会考）', label: '学业水平考试（会考）' },
+  // { value: '高考', label: '高考' },
+  // { value: '竞赛类考试', label: '竞赛类考试' },
+  // { value: '英语等级考试', label: '英语等级考试' },
+  // { value: '自主招生考试', label: '自主招生考试' },
+]
+
+export const subjectList = [
+  { value: '语文', label: '语文' },
+  { value: '数学', label: '数学' },
+  { value: '英语', label: '英语' },
+  { value: '政治', label: '政治' },
+  { value: '物理', label: '物理' },
+  { value: '化学', label: '化学' },
+  { value: '历史', label: '历史' },
+  { value: '地理', label: '地理' },
+  { value: '生物', label: '生物' },
+  //   { value: '体育', label: '体育' },
+  //   { value: '音乐', label: '音乐' },
+  //   { value: '美术', label: '美术' },
+  //   { value: '信息技术', label: '信息技术' },
+  //   { value: '思想政治', label: '思想政治' },
+  //   { value: '通用技术', label: '通用技术' },
+  //   { value: '心理学', label: '心理学' },
+  //   { value: '生涯规划', label: '生涯规划' },
+  //   { value: '校本课程', label: '校本课程' },
+]

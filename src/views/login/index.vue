@@ -22,7 +22,7 @@
         class="login-form"
         @confirm="login"
       />
-      <div class="tourist-account" @click="getTouristAccount">获取游客账号</div>
+      <!-- <div class="tourist-account" @click="getTouristAccount">获取游客账号</div> -->
 
       <div :class="{ hidden: isTouristHidden }">
         <t-card shadow>
