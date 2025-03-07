@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="jsx">
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 import ImportDialog from './components/ImportDialog.vue'
 import StudentScoreDialog from './components/StudentScoreDialog.vue'
 import { examTypeList, subjectList } from '@/variables'
@@ -36,6 +36,7 @@ const formModel = ref({})
 const params = ref({})
 const scoreDialogVisible = ref(false)
 const importDialogVisible = ref(false)
+const message = inject('message')
 
 const scoreData = [
   {

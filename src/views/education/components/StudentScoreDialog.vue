@@ -14,6 +14,7 @@
       :form-model="formModel"
       :field-list="fieldList"
       :columns="columns"
+      :action-option-list="actionOptionList"
       :height="500"
       url="/api/score/page"
     />
@@ -22,6 +23,7 @@
 
 <script setup lang="jsx">
 import { examTypeList } from '@/variables'
+import { confirmDialog } from '@/utils/business'
 import { nextTick, ref } from 'vue'
 
 const props = defineProps({
@@ -143,6 +145,39 @@ const columns = [
     colKey: 'multiple_choice',
     title: '单选题',
     minWidth: 100,
+  },
+]
+
+const actionOptionList = [
+  {
+    content: '成绩分析',
+    value: 'chart-analytics',
+    theme: 'success',
+    async onClick({ row }) {
+      const dialog = await confirmDialog(
+        <div>
+          <span class="text-warning-6">学生成绩分析功能请开通 Plus 版本</span>
+        </div>
+      )
+      // await fetchScoreGenQa(row)
+      // dialog.hide()
+      // message.success('操作成功')
+    },
+  },
+  {
+    content: '生题',
+    value: 'mode-light',
+    theme: 'warning',
+    async onClick({ row }) {
+      const dialog = await confirmDialog(
+        <div>
+          <span class="text-warning-6">学生生题功能请开通 Pro 版本</span>
+        </div>
+      )
+      // await fetchScoreGenQa(row)
+      // dialog.hide()
+      // message.success('操作成功')
+    },
   },
 ]
 

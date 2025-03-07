@@ -6,7 +6,7 @@
       :field-list="fieldList"
       :columns="columns"
       :action-option-list="actionOptionList"
-      url="/api/user_page"
+      url="/api/user/page"
     >
       <template #formActions>
         <t-button theme="primary" @click="userDialogVisible = true">新增</t-button>
@@ -33,18 +33,18 @@ const baseTableRef = ref()
 const formModel = ref({})
 const message = inject('message')
 const fieldList = [
-  {
-    label: '工号',
-    value: 'code',
-  },
+  // {
+  //   label: '工号',
+  //   value: 'code',
+  // },
   {
     label: '用户名',
     value: 'username',
   },
-  {
-    label: '手机号',
-    value: 'phone',
-  },
+  // {
+  //   label: '手机号',
+  //   value: 'phone',
+  // },
 ]
 
 const userDialogVisible = ref(false)
@@ -106,12 +106,12 @@ const columns = computed(() => [
     ellipsis: true,
     width: 100,
   },
-  {
-    colKey: 'code',
-    title: '工号',
-    ellipsis: true,
-    width: 100,
-  },
+  // {
+  //   colKey: 'code',
+  //   title: '工号',
+  //   ellipsis: true,
+  //   width: 100,
+  // },
   {
     colKey: 'username',
     title: '用户名',
@@ -119,23 +119,47 @@ const columns = computed(() => [
     width: 160,
   },
   {
-    colKey: 'nickname',
-    title: '昵称',
+    colKey: 'code',
+    title: '成绩分析剩余次数',
     ellipsis: true,
-    width: 140,
+    width: 160,
   },
   {
-    colKey: 'phone',
-    title: '手机号',
+    colKey: 'seat',
+    title: '生题剩余次数',
     ellipsis: true,
-    width: 140,
+    width: 160,
   },
   {
-    colKey: 'mail',
-    title: '邮箱',
+    colKey: 'department',
+    title: '单个学生成绩分析剩余次数',
     ellipsis: true,
-    width: 280,
+    width: 200,
   },
+  {
+    colKey: 'position',
+    title: '单个学生生题剩余次数',
+    ellipsis: true,
+    width: 160,
+  },
+  // {
+  //   colKey: 'nickname',
+  //   title: '昵称',
+  //   ellipsis: true,
+  //   width: 140,
+  // },
+  // {
+  //   colKey: 'phone',
+  //   title: '手机号',
+  //   ellipsis: true,
+  //   width: 140,
+  // },
+  // {
+  //   colKey: 'mail',
+  //   title: '邮箱',
+  //   ellipsis: true,
+  //   width: 280,
+  // },
   {
     colKey: 'status',
     title: '状态',
@@ -159,12 +183,12 @@ const columns = computed(() => [
     ellipsis: true,
     width: 200,
   },
-  {
-    colKey: 'remark',
-    title: '备注',
-    ellipsis: true,
-    width: 180,
-  },
+  // {
+  //   colKey: 'remark',
+  //   title: '备注',
+  //   ellipsis: true,
+  //   width: 180,
+  // },
 ])
 </script>
 
