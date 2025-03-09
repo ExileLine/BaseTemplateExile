@@ -165,6 +165,11 @@ const columns = [
   //   },
   // },
   {
+    colKey: 'creator',
+    title: '创建人',
+    minWidth: 160,
+  },
+  {
     colKey: 'create_time',
     title: '创建时间',
     minWidth: 160,
