@@ -7,3 +7,5 @@ export const downloadSourceZip = data =>
 
 export const fetchScoreGenQa = data => post('/api/score/gen_qa', data)
 export const fetchScoreDelete = data => del('/api/score/delete', data)
+
+export const fetchScoreGenStudentQa = data => post('/api/score/gen_student_exam', data)

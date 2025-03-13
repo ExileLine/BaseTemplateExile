@@ -24,7 +24,8 @@
 <script setup lang="jsx">
 import { examTypeList } from '@/variables'
 import { confirmDialog } from '@/utils/business'
-import { nextTick, ref } from 'vue'
+import { nextTick, ref, inject } from 'vue'
+import { fetchScoreGenStudentQa } from '@/api/education'
 
 const props = defineProps({
   visible: Boolean,
@@ -34,6 +35,7 @@ const emit = defineEmits(['update:visible'])
 
 const tableRef = ref()
 const formModel = ref({})
+const message = inject('message')
 
 const fieldList = [
   {
@@ -159,9 +161,9 @@ const actionOptionList = [
           <span class="text-warning-6">学生成绩分析功能请开通 Plus 版本</span>
         </div>
       )
-      // await fetchScoreGenQa(row)
-      // dialog.hide()
-      // message.success('操作成功')
+      await fetchScoreGenStudentQa(row)
+      dialog.hide()
+      message.success('操作成功')
     },
   },
   {
@@ -174,9 +176,9 @@ const actionOptionList = [
           <span class="text-warning-6">学生生题功能请开通 Pro 版本</span>
         </div>
       )
-      // await fetchScoreGenQa(row)
-      // dialog.hide()
-      // message.success('操作成功')
+      await fetchScoreGenStudentQa(row)
+      dialog.hide()
+      message.success('操作成功')
     },
   },
 ]
