@@ -10,3 +10,5 @@ export const fetchGetUser = () => get('/api/auth')
 export const fetchAddUser = data => post('/api/user', data)
 export const fetchUpdateUser = data => put('/api/user', data)
 export const fetchDeleteUser = data => del('/api/user', data)
+
+export const fetchSetUserTokens = data => post('/api/score/set_tokens', data)

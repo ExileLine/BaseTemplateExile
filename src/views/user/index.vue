@@ -19,6 +19,20 @@
       @save="baseTableRef.getData = true"
       @close="userForm = {}"
     />
+
+    <t-dialog v-model:visible="tokensDialogVisible" header="积分操作" :footer="false">
+      <common-form
+        dialog
+        ref="userFormRef"
+        :data="userForm"
+        :field-list="tokensFieldList"
+        label-width="6em"
+        confirm-text="确定"
+        cancel-text="取消"
+        @confirm="setUserTokens"
+        @cancel="tokensDialogVisible = false"
+      />
+    </t-dialog>
   </page-container>
 </template>
 
@@ -26,7 +40,7 @@
 import { ref, computed, inject } from 'vue'
 import { cloneDeep } from 'lodash-es'
 import UserDialog from './components/UserDialog.vue'
-import { fetchDeleteUser } from '@/api/user'
+import { fetchDeleteUser, fetchSetUserTokens } from '@/api/user'
 import { confirmDialog } from '@/utils/business'
 
 const baseTableRef = ref()
@@ -49,6 +63,7 @@ const fieldList = [
 
 const userDialogVisible = ref(false)
 const userForm = ref({})
+const tokensDialogVisible = ref(false)
 
 const actionOptionList = [
   {
@@ -58,6 +73,15 @@ const actionOptionList = [
     onClick({ row }) {
       userForm.value = cloneDeep(row)
       userDialogVisible.value = true
+    },
+  },
+  {
+    content: '积分',
+    value: 'wealth-1',
+    theme: 'warning',
+    onClick({ row }) {
+      userForm.value = cloneDeep(row)
+      tokensDialogVisible.value = true
     },
   },
   // {
@@ -119,26 +143,8 @@ const columns = computed(() => [
     width: 160,
   },
   {
-    colKey: 'code',
-    title: '成绩分析剩余次数',
-    ellipsis: true,
-    width: 160,
-  },
-  {
-    colKey: 'seat',
-    title: '生题剩余次数',
-    ellipsis: true,
-    width: 160,
-  },
-  {
-    colKey: 'department',
-    title: '单个学生成绩分析剩余次数',
-    ellipsis: true,
-    width: 200,
-  },
-  {
-    colKey: 'position',
-    title: '单个学生生题剩余次数',
+    colKey: 'ai_tokens_amount',
+    title: '剩余积分',
     ellipsis: true,
     width: 160,
   },
@@ -160,23 +166,23 @@ const columns = computed(() => [
   //   ellipsis: true,
   //   width: 280,
   // },
-  {
-    colKey: 'status',
-    title: '状态',
-    ellipsis: true,
-    width: 100,
-    render(h, { type, row }) {
-      if (type === 'title') return
-      return (
-        <t-switch
-          value={row.status}
-          customValue={[1, 99]}
-          label={['启用', '禁用']}
-          onChange={val => updateUserStatus(val, row)}
-        ></t-switch>
-      )
-    },
-  },
+  // {
+  //   colKey: 'status',
+  //   title: '状态',
+  //   ellipsis: true,
+  //   width: 100,
+  //   render(h, { type, row }) {
+  //     if (type === 'title') return
+  //     return (
+  //       <t-switch
+  //         value={row.status}
+  //         customValue={[1, 99]}
+  //         label={['启用', '禁用']}
+  //         onChange={val => updateUserStatus(val, row)}
+  //       ></t-switch>
+  //     )
+  //   },
+  // },
   {
     colKey: 'create_time',
     title: '创建时间',
@@ -190,6 +196,36 @@ const columns = computed(() => [
   //   width: 180,
   // },
 ])
+
+const tokensFieldList = [
+  {
+    label: '增加积分',
+    value: 'add_tokens_val',
+    component: 't-input-number',
+    extraProps: {
+      theme: 'normal',
+      type: 'tel',
+      class: 'wp-100',
+    },
+  },
+  {
+    label: '扣减积分',
+    value: 'cut_tokens_val',
+    component: 't-input-number',
+    extraProps: {
+      theme: 'normal',
+      type: 'tel',
+      class: 'wp-100',
+    },
+  },
+]
+
+const setUserTokens = async () => {
+  await fetchSetUserTokens(userForm.value)
+  message.success('操作成功')
+  tokensDialogVisible.value = false
+  baseTableRef.value.getData = true
+}
 </script>
 
 <style lang="scss" scoped></style>

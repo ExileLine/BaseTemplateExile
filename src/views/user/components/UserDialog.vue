@@ -91,9 +91,27 @@ const editFieldList = [
     label: '昵称',
     value: 'nickname',
   },
+  // {
+  //   label: '手机号',
+  //   value: 'phone',
+  //   component: 't-input-number',
+  //   extraProps: {
+  //     theme: 'normal',
+  //     type: 'tel',
+  //     class: 'wp-100',
+  //   },
+  // },
+  // {
+  //   label: '邮箱',
+  //   value: 'mail',
+  // },
+  // {
+  //   label: '备注',
+  //   value: 'remark',
+  // },
   {
-    label: '手机号',
-    value: 'phone',
+    label: '增加积分',
+    value: 'add_ai_tokens_amount',
     component: 't-input-number',
     extraProps: {
       theme: 'normal',
@@ -102,20 +120,22 @@ const editFieldList = [
     },
   },
   {
-    label: '邮箱',
-    value: 'mail',
-  },
-  {
-    label: '备注',
-    value: 'remark',
+    label: '扣减积分',
+    value: 'cut_ai_tokens_amount',
+    component: 't-input-number',
+    extraProps: {
+      theme: 'normal',
+      type: 'tel',
+      class: 'wp-100',
+    },
   },
 ]
 const fieldList = computed(() => (props.data.id ? editFieldList : addFieldList))
 const rules = {
   username: [validateRequired('请输入用户名')],
-  password: [validateRequired('请输入密码')],
-  phone: [validateRequired('请输入手机号')],
-  mail: [validateRequired('请输入邮箱')],
+  // password: [validateRequired('请输入密码')],
+  // phone: [validateRequired('请输入手机号')],
+  // mail: [validateRequired('请输入邮箱')],
 }
 
 const close = () => {
