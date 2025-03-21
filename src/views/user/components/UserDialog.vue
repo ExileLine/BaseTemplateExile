@@ -109,26 +109,6 @@ const editFieldList = [
   //   label: '备注',
   //   value: 'remark',
   // },
-  {
-    label: '增加积分',
-    value: 'add_ai_tokens_amount',
-    component: 't-input-number',
-    extraProps: {
-      theme: 'normal',
-      type: 'tel',
-      class: 'wp-100',
-    },
-  },
-  {
-    label: '扣减积分',
-    value: 'cut_ai_tokens_amount',
-    component: 't-input-number',
-    extraProps: {
-      theme: 'normal',
-      type: 'tel',
-      class: 'wp-100',
-    },
-  },
 ]
 const fieldList = computed(() => (props.data.id ? editFieldList : addFieldList))
 const rules = {
